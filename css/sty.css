@@ -1,0 +1,248 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  background: #202020;
+}
+
+.pagina {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+
+  background-image: url("./imagens/img-fundo-pc.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding: 60px 120px;
+}
+
+/* Navegação */
+.navegacao {
+  position: absolute;
+  top: 55px;
+  left: 80px;
+  right: 80px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Card Formulário */
+.card-formulario {
+  width: 430px;
+
+  background: rgba(240, 2, 2, 0.35);
+  backdrop-filter: blur(8px);
+
+  border-radius: 24px;
+  padding: 36px 42px;
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+}
+.card-formulario:hover {
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+  transform: scale(1.04);
+  transition: 0.3s;
+}
+
+.btn-voltar,
+.btn-login {
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+
+  background: linear-gradient(180deg, #b30000, #650000);
+  color: #ffffff;
+
+  padding: 10px 26px;
+  border-radius: 10px;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+}
+
+.btn-voltar:hover,
+.btn-login:hover,
+.btn-cadastrar:hover {
+  transform: scale(1.04);
+  filter: brightness(1.15);
+}
+
+/* Formulário */
+form {
+  width: 100%;
+}
+
+.campo {
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.campo label {
+  display: block;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+
+.campo input {
+  width: 100%;
+  height: 42px;
+
+  border: none;
+  outline: none;
+
+  border-radius: 8px;
+  padding: 0 14px;
+
+  background: #ffffff;
+  color: #333333;
+
+  font-size: 14px;
+}
+
+.campo input::placeholder {
+  color: #999999;
+}
+
+/* WhatsApp e Segmento lado a lado no PC */
+.linha-campos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Botão cadastrar */
+.btn-cadastrar {
+  display: block;
+  width: 220px;
+  height: 44px;
+
+  margin: 20px auto 0;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(180deg, #8c0000, #4b0000);
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Mensagem de Sucesso */
+.mensagem-sucesso {
+  display: none;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 20px;
+}
+
+.mensagem-sucesso h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.mensagem-sucesso p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.mensagem-sucesso.ativa {
+  display: block;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .pagina {
+    background-image: url("./imagens/img-fundo-cel.png");
+    padding: 50px;
+    justify-content: center;
+  }
+
+  .navegacao {
+    left: 40px;
+    right: 40px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .pagina {
+    background-image: url("./imagens/img-fundo-cel.png");
+    background-size: cover;
+    background-position: center;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 90px 24px 40px;
+  }
+
+  .navegacao {
+    top: 35px;
+    left: 28px;
+    right: 28px;
+  }
+
+  .btn-voltar,
+  .btn-login {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+
+  .card-formulario {
+    width: 100%;
+    max-width: 360px;
+
+    padding: 30px 26px;
+    border-radius: 20px;
+  }
+
+  .linha-campos {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .campo {
+    margin-bottom: 16px;
+  }
+
+  .btn-cadastrar {
+    width: 190px;
+  }
+}
+
+/* Celulares pequenos */
+@media (max-width: 390px) {
+  .card-formulario {
+    padding: 26px 22px;
+  }
+
+  .campo input {
+    height: 40px;
+  }
+
+  .btn-cadastrar {
+    width: 170px;
+    font-size: 14px;
+  }
+}

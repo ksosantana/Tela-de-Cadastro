@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cliente Fiel - Cadastro</title>
+
+  <link rel="stylesheet" href="./css/sty.css" />
+</head>
+<body>
+
+  <main class="pagina">
+    <nav class="navegacao">
+        <a class="btn-voltar" href="https://appclientefiel.com.br/">Voltar</a>
+        <a
+          class="btn-login" 
+          href="https://sistema.appclientefiel.com.br/" 
+          target="_blank"
+        > Login
+        </a>
+    </nav>
+
+    <section class="card-formulario">
+
+      <form id="formCadastro">
+
+        <div class="campo">
+          <label for="nome">Nome:</label>
+          <input 
+            type="text" 
+            id="nome" 
+            name="nome" 
+            placeholder="Nome" 
+            required
+          />
+        </div>
+
+        <div class="campo">
+          <label for="empresa">Empresa:</label>
+          <input 
+            type="text" 
+            id="empresa" 
+            name="empresa" 
+            placeholder="Empresa" 
+            required
+          />
+        </div>
+
+        <div class="linha-campos">
+
+          <div class="campo">
+            <label for="whatsapp">WhatsApp:</label>
+            <input 
+              type="tel" 
+              id="whatsapp" 
+              name="whatsapp" 
+              placeholder="WhatsApp" 
+              required
+            />
+          </div>
+
+          <div class="campo">
+            <label for="segmento">Segmento/Ramo:</label>
+            <input 
+              type="text" 
+              id="segmento" 
+              name="segmento" 
+              placeholder="Segmento/Ramo" 
+              required
+            />
+          </div>
+
+        </div>
+
+        <div class="campo">
+          <label for="origem">Como nos encontrou? (opcional)</label>
+          <input 
+            type="text" 
+            id="origem" 
+            name="origem" 
+            placeholder="Como nos encontrou?"
+          />
+        </div>
+
+        <button type="submit" class="btn-cadastrar">
+          Criar cadastro
+        </button>
+
+      </form>
+
+      <div id="mensagemSucesso" class="mensagem-sucesso">
+        <h2>Cadastro confirmado!</h2>
+        <p>Nossa equipe entrará em contato para dar continuidade no seu cadastro.</p>
+      </div>
+
+    </section>
+
+    
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
