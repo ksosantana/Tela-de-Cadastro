@@ -7,7 +7,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   min-height: 100vh;
-  background: #202020;
+  background: #916f6f;
 }
 
 .pagina {
@@ -15,7 +15,7 @@ body {
   min-height: 100vh;
   position: relative;
 
-  background-image: url("./imagens/img-fundo-pc.png");
+  background-image: url("./imagens/img-fundo-pc1.2.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -42,7 +42,9 @@ body {
 .card-formulario {
   width: 430px;
 
-  background: rgba(240, 2, 2, 0.35);
+  background: rgba(255, 255, 255, 0.85);
+  color: #222;
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
 
   border-radius: 24px;
@@ -62,7 +64,7 @@ body {
   text-decoration: none;
   cursor: pointer;
 
-  background: linear-gradient(180deg, #b30000, #650000);
+  background: #ff4545;
   color: #ffffff;
 
   padding: 10px 26px;
@@ -94,7 +96,7 @@ form {
 
 .campo label {
   display: block;
-  color: #ffffff;
+  color: #131212;
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 7px;
@@ -110,8 +112,8 @@ form {
   border-radius: 8px;
   padding: 0 14px;
 
-  background: #ffffff;
-  color: #333333;
+      background: #d5d5d5;
+    color: #333333;
 
   font-size: 14px;
 }
@@ -121,11 +123,11 @@ form {
 }
 
 /* WhatsApp e Segmento lado a lado no PC */
-.linha-campos {
+/*.linha-campos {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
-}
+}*/
 
 /* Botão cadastrar */
 .btn-cadastrar {
@@ -138,7 +140,7 @@ form {
   border: none;
   border-radius: 10px;
 
-  background: linear-gradient(180deg, #8c0000, #4b0000);
+  background:#ff4545;
   color: #ffffff;
 
   font-size: 15px;
@@ -152,7 +154,7 @@ form {
 .mensagem-sucesso {
   display: none;
   text-align: center;
-  color: #ffffff;
+  color: #131212;
   margin-top: 20px;
 }
 

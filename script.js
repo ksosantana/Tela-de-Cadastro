@@ -1,16 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() {
   const formCadastro = document.getElementById('formCadastro');
   const mensagemSucesso = document.getElementById('mensagemSucesso');
+  const whatsappNumber = '5592999095226';
 
   if (formCadastro) {
     formCadastro.addEventListener('submit', function(event) {
       event.preventDefault();
 
-      // Ocultar o formulário
-      formCadastro.style.display = 'none';
+      const nome = document.getElementById('nome')?.value.trim() || '';
+      const empresa = document.getElementById('empresa')?.value.trim() || '';
+      const segmento = document.getElementById('segmento')?.value.trim() || '';
+      const origem = document.getElementById('origem')?.value.trim() || '';
 
-      // Mostrar a mensagem de sucesso
-      mensagemSucesso.classList.add('ativa');
+      // Atualiza mensagem para o usuário
+      if (mensagemSucesso) {
+        mensagemSucesso.innerHTML = '<h2>Realizei o cadastro inicial.</h2>' 
+      }
+
+      // Ocultar o formulário e mostrar a mensagem
+      formCadastro.style.display = 'none';
+      mensagemSucesso?.classList.add('ativa');
+
+      // Monta mensagem para o WhatsApp com dados do formulário
+      const text = `*Realizei o cadastro inicial.* \nNome: ${nome}\nEmpresa: ${empresa}\nSegmento: ${segmento}\nOrigem: ${origem}`;
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+
+      // Redireciona para o WhatsApp após 1,5s (mostra a mensagem brevemente)
+      setTimeout(() => {
+        window.location.href = url;
+      }, 1500);
     });
   }
 });
