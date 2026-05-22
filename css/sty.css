@@ -19,6 +19,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -26,7 +27,7 @@ body {
   padding: 60px 120px;
 }
 
-/* Navegação */
+/* Navegação superior */
 .navegacao {
   position: absolute;
   top: 55px;
@@ -36,29 +37,53 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  z-index: 1001;
 }
 
-/* Card Formulário */
-.card-formulario {
-  width: 430px;
+/* Botão hambúrguer */
+.btn-menu-hamburguer {
+  width: 46px;
+  height: 42px;
 
-  background: rgba(255, 255, 255, 0.85);
-  color: #222;
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  border: none;
+  border-radius: 10px;
 
-  border-radius: 24px;
-  padding: 36px 42px;
+  background: #ff4545;
+  color: #ffffff;
 
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
-}
-.card-formulario:hover {
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
-  transform: scale(1.04);
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   transition: 0.3s;
+  z-index: 1002;
 }
 
-.btn-voltar,
+.btn-menu-hamburguer::before {
+  content: "☰";
+}
+
+.btn-menu-hamburguer.ativo::before {
+  content: "×";
+  font-size: 30px;
+}
+
+.btn-menu-hamburguer:hover,
+.btn-login:hover,
+.btn-cadastrar:hover {
+  transform: scale(1.04);
+  filter: brightness(1.15);
+}
+
+/* Botão Login */
 .btn-login {
   border: none;
   text-decoration: none;
@@ -77,11 +102,81 @@ body {
   transition: 0.3s;
 }
 
-.btn-voltar:hover,
-.btn-login:hover,
-.btn-cadastrar:hover {
+/* Menu Lateral */
+.menu-lateral {
+  position: fixed;
+  left: -300px;
+  top: 0;
+
+  width: 250px;
+  height: 100vh;
+
+  background: rgba(87, 48, 48, 0.95);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  flex-direction: column;
+  padding-top: 110px;
+
+  transition: left 0.3s ease;
+  z-index: 1000;
+
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.menu-lateral.ativo {
+  left: 0;
+}
+
+.menu-item {
+  padding: 18px 30px;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  font-size: 16px;
+  font-weight: 500;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  transition: background 0.3s, padding-left 0.3s;
+}
+
+.menu-item:hover {
+  background: rgba(255, 69, 69, 0.2);
+  padding-left: 40px;
+}
+
+.menu-icon {
+  font-size: 20px;
+}
+
+/* Card Formulário */
+.card-formulario {
+  width: 430px;
+
+  background: rgba(255, 255, 255, 0.85);
+  color: #222;
+
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+
+  border-radius: 24px;
+  padding: 36px 42px;
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+
+  transition: 0.3s;
+}
+
+.card-formulario:hover {
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
   transform: scale(1.04);
-  filter: brightness(1.15);
 }
 
 /* Formulário */
@@ -97,8 +192,10 @@ form {
 .campo label {
   display: block;
   color: #131212;
+
   font-size: 14px;
   font-weight: bold;
+
   margin-bottom: 7px;
 }
 
@@ -112,8 +209,8 @@ form {
   border-radius: 8px;
   padding: 0 14px;
 
-      background: #d5d5d5;
-    color: #333333;
+  background: #d5d5d5;
+  color: #333333;
 
   font-size: 14px;
 }
@@ -122,16 +219,17 @@ form {
   color: #999999;
 }
 
-/* WhatsApp e Segmento lado a lado no PC */
-/*.linha-campos {
+/* WhatsApp e Segmento lado a lado no computador */
+.linha-campos {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 14px;
-}*/
+}
 
 /* Botão cadastrar */
 .btn-cadastrar {
   display: block;
+
   width: 220px;
   height: 44px;
 
@@ -140,7 +238,7 @@ form {
   border: none;
   border-radius: 10px;
 
-  background:#ff4545;
+  background: #ff4545;
   color: #ffffff;
 
   font-size: 15px;
@@ -153,8 +251,10 @@ form {
 /* Mensagem de Sucesso */
 .mensagem-sucesso {
   display: none;
+
   text-align: center;
   color: #131212;
+
   margin-top: 20px;
 }
 
@@ -175,7 +275,8 @@ form {
 /* Tablet */
 @media (max-width: 1024px) {
   .pagina {
-    background-image: url("./imagens/img-fundo-cel.png");
+    background-image: url("./imagens/img-fundo-cel1.1.png");
+
     padding: 50px;
     justify-content: center;
   }
@@ -189,7 +290,7 @@ form {
 /* Mobile */
 @media (max-width: 768px) {
   .pagina {
-    background-image: url("./imagens/img-fundo-cel.png");
+    background-image: url("./imagens/img-fundo-cel1.1.png");
     background-size: cover;
     background-position: center;
 
@@ -205,10 +306,24 @@ form {
     right: 28px;
   }
 
-  .btn-voltar,
+  .btn-menu-hamburguer {
+    width: 42px;
+    height: 38px;
+    font-size: 22px;
+  }
+
   .btn-login {
     padding: 8px 18px;
     font-size: 13px;
+  }
+
+  .menu-lateral {
+    width: 230px;
+    left: -260px;
+  }
+
+  .menu-lateral.ativo {
+    left: 0;
   }
 
   .card-formulario {

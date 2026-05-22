@@ -1,69 +1,101 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const formCadastro = document.getElementById('formCadastro');
-  const mensagemSucesso = document.getElementById('mensagemSucesso');
-  const whatsappNumber = '5592999095226';
+// Menu Lateral
+document.addEventListener("DOMContentLoaded", function () {
+  const menuToggle = document.getElementById("menuToggle");
+  const menuLateral = document.getElementById("menuLateral");
+  const menuItems = document.querySelectorAll(".menu-item");
+  const btnSuporte = document.getElementById("btnSuporte");
+  const whatsappEmpresa = "55929924995441";
+
+  function fecharMenu() {
+    menuToggle?.classList.remove("ativo");
+    menuLateral?.classList.remove("ativo");
+  }
+
+  // Abrir/fechar SOMENTE pelo botão hambúrguer
+  if (menuToggle && menuLateral) {
+    menuToggle.addEventListener("click", function (event) {
+      event.stopPropagation();
+
+      menuToggle.classList.toggle("ativo");
+      menuLateral.classList.toggle("ativo");
+    });
+
+    // Evita fechar ao clicar dentro do menu
+    menuLateral.addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
+
+    // Fecha ao clicar fora
+    document.addEventListener("click", function () {
+      if (menuLateral.classList.contains("ativo")) {
+        fecharMenu();
+      }
+    });
+  }
+
+  // Fechar menu ao clicar em um item
+  menuItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      fecharMenu();
+    });
+  });
+
+  // Suporte - WhatsApp
+  if (btnSuporte) {
+    btnSuporte.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const mensagem = "Preciso de suporte";
+      const url = `https://wa.me/${whatsappEmpresa}?text=${encodeURIComponent(mensagem)}`;
+
+      window.open(url, "_blank");
+      fecharMenu();
+    });
+  }
+
+  // Formulário de Cadastro
+  const formCadastro = document.getElementById("formCadastro");
+  const mensagemSucesso = document.getElementById("mensagemSucesso");
+  const whatsappNumberCadastro = "5592999095226";
 
   if (formCadastro) {
-    formCadastro.addEventListener('submit', function(event) {
+    formCadastro.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      const nome = document.getElementById('nome')?.value.trim() || '';
-      const empresa = document.getElementById('empresa')?.value.trim() || '';
-      const segmento = document.getElementById('segmento')?.value.trim() || '';
-      const origem = document.getElementById('origem')?.value.trim() || '';
+      const nome = document.getElementById("nome")?.value.trim() || "";
+      const empresa = document.getElementById("empresa")?.value.trim() || "";
+      const segmento = document.getElementById("segmento")?.value.trim() || "";
+      const origem = document.getElementById("origem")?.value.trim() || "";
 
-      // Atualiza mensagem para o usuário
-      if (mensagemSucesso) {
-        mensagemSucesso.innerHTML = '<h2>Realizei o cadastro inicial.</h2>' 
+      if (!nome || !empresa || !segmento) {
+        alert("Por favor, preencha todos os campos obrigatórios.");
+        return;
       }
 
-      // Ocultar o formulário e mostrar a mensagem
-      formCadastro.style.display = 'none';
-      mensagemSucesso?.classList.add('ativa');
+      if (mensagemSucesso) {
+        mensagemSucesso.innerHTML = `
+          <h2>Cadastro quase conlcuido!</h2>
+          <p>Para agilizar, vamos de redirecionar para o WhatsApp.</p>
+        `;
+      }
 
-      // Monta mensagem para o WhatsApp com dados do formulário
-      const text = `*Realizei o cadastro inicial.* \nNome: ${nome}\nEmpresa: ${empresa}\nSegmento: ${segmento}\nOrigem: ${origem}`;
-      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+      formCadastro.style.display = "none";
+      mensagemSucesso?.classList.add("ativa");
 
-      // Redireciona para o WhatsApp após 1,5s (mostra a mensagem brevemente)
+      const text = `*Realizei o cadastro inicial.*
+
+      Nome: ${nome}
+      Empresa: ${empresa}
+      Segmento: ${segmento}
+      Origem: ${origem || "Não informado"}`;
+
+      mensagemSucesso?.classList.add("ativa");
+
+      const url = `https://wa.me/${whatsappNumberCadastro}?text=${encodeURIComponent(text)}`;
+
       setTimeout(() => {
         window.location.href = url;
       }, 1500);
     });
   }
-});
-const formCadastro = document.getElementById("formCadastro");
-const btnVoltar = document.getElementById("btnVoltar");
-
-btnVoltar.addEventListener("click", function () {
-  window.history.back();
-});
-
-formCadastro.addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  const nome = document.getElementById("nome").value.trim();
-  const empresa = document.getElementById("empresa").value.trim();
-  const whatsapp = document.getElementById("whatsapp").value.trim();
-  const segmento = document.getElementById("segmento").value.trim();
-  const origem = document.getElementById("origem").value.trim();
-
-  if (!nome || !empresa || !whatsapp || !segmento) {
-    alert("Por favor, preencha todos os campos obrigatórios.");
-    return;
-  }
-
-  const numeroEmpresa = "55929924995441";
-
-  const mensagem = `Olá, acabei de realizar o cadastro.
-
-Nome: ${nome}
-Empresa: ${empresa}
-WhatsApp: ${whatsapp}
-Segmento/Ramo: ${segmento}
-Como nos encontrou: ${origem || "Não informado"}`;
-
-  const linkWhatsApp = `https://wa.me/${numeroEmpresa}?text=${encodeURIComponent(mensagem)}`;
-
-  window.open(linkWhatsApp, "_blank");
 });

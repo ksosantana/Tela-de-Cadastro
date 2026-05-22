@@ -11,14 +11,25 @@
 
   <main class="pagina">
     <nav class="navegacao">
-        <a class="btn-voltar" href="https://appclientefiel.com.br/">Voltar</a>
-        <a
-          class="btn-login" 
-          href="https://sistema.appclientefiel.com.br/" 
-          target="_blank"
-        > Login
-        </a>
+  
+      <button id="menuToggle" class="btn-menu-hamburguer" type="button">
+        ☰
+      </button>
+
+      <a class="btn-login" href="https://sistema.appclientefiel.com.br/" target="_blank" >
+        Login
+      </a>
     </nav>
+
+    <div id="menuLateral" class="menu-lateral">
+      <a href="https://appclientefiel.com.br/" class="menu-item">
+        <span class="menu-icon">🏠</span> Tela Inicial
+      </a>
+
+      <a href="#" id="btnSuporte" class="menu-item">
+        <span class="menu-icon">💬</span> Suporte
+      </a>
+    </div>
 
     <section class="card-formulario">
 
@@ -73,10 +84,9 @@
 
       </form>
 
-      <div id="mensagemSucesso" class="mensagem-sucesso">
-        <h2>Cadastro confirmado!</h2>
-        <p>Nossa equipe entrará em contato para dar continuidade no seu cadastro.</p>
-      </div>
+      <div id="mensagemSucesso" class="mensagem-sucesso"> 
+       
+      </div> 
 
     </section>
 
