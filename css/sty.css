@@ -41,7 +41,7 @@ body {
   z-index: 1001;
 }
 
-/* Botão hambúrguer */
+/* Botão hambúrguer 
 .btn-menu-hamburguer {
   width: 46px;
   height: 42px;
@@ -75,16 +75,15 @@ body {
   content: "×";
   font-size: 30px;
 }
-
-.btn-menu-hamburguer:hover,
-.btn-login:hover,
+.btn-menu-hamburguer:hover,*/
+.btn-voltar:hover,
 .btn-cadastrar:hover {
   transform: scale(1.04);
   filter: brightness(1.15);
 }
 
 /* Botão Login */
-.btn-login {
+.btn-voltar {
   border: none;
   text-decoration: none;
   cursor: pointer;
