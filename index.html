@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <link rel="icon" type="image/png" href="./css/imagens/logoclientefiel-min.webp">
+
   <title>Cliente Fiel - Cadastro</title>
 
   <link rel="stylesheet" href="./css/sty.css" />
@@ -11,26 +13,18 @@
 <body>
 
   <main class="pagina">
-    <nav class="navegacao">
-  
-      <!--<button id="menuToggle" class="btn-menu-hamburguer" type="button">
-        ☰
-      </button>-->
 
-      <a class="btn-voltar" href="https://appclientefiel.com.br/" target="_blank" >
+    <nav class="navegacao">
+      <a class="btn-voltar" href="https://appclientefiel.com.br/" target="_blank">
         Voltar
       </a>
     </nav>
 
-   <!-- <div id="menuLateral" class="menu-lateral">
-      <a href="https://appclientefiel.com.br/" class="menu-item">
-        <span class="menu-icon">🏠</span> Tela Inicial
-      </a>
-
-      <a href="#" id="btnSuporte" class="menu-item">
-        <span class="menu-icon">💬</span> Suporte
-      </a>
-    </div>-->
+    <img
+      class="selo-clientefiel"
+      src="./css/imagens/SeloClientefiel.png"
+      alt="Selo Cliente Fiel"
+    />
 
     <section class="card-formulario">
 
@@ -38,43 +32,58 @@
 
         <div class="campo">
           <label for="nome">Nome:</label>
-          <input 
-            type="text" 
-            id="nome" 
-            name="nome" 
-            placeholder="Nome" 
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Nome"
             required
           />
         </div>
 
         <div class="campo">
           <label for="empresa">Empresa:</label>
-          <input 
-            type="text" 
-            id="empresa" 
-            name="empresa" 
-            placeholder="Empresa" 
+          <input
+            type="text"
+            id="empresa"
+            name="empresa"
+            placeholder="Empresa"
             required
           />
         </div>
 
-        <div class="campo">
-          <label for="segmento">Segmento/Ramo:</label>
-          <input 
-            type="text" 
-            id="segmento" 
-            name="segmento" 
-            placeholder="Segmento/Ramo" 
-            required
-          />
+        <div class="linha-mobile">
+
+          <div class="campo campo-mobile">
+            <label for="whatsApp">WhatsApp:</label>
+            <input
+              type="text"
+              id="whatsApp"
+              name="whatsApp"
+              placeholder="WhatsApp"
+              required
+            />
+          </div>
+
+          <div class="campo campo-mobile">
+            <label for="segmento">Segmento/Ramo:</label>
+            <input
+              type="text"
+              id="segmento"
+              name="segmento"
+              placeholder="Segmento/Ramo"
+              required
+            />
+          </div>
+
         </div>
 
         <div class="campo">
           <label for="origem">Como nos encontrou? (opcional)</label>
-          <input 
-            type="text" 
-            id="origem" 
-            name="origem" 
+          <input
+            type="text"
+            id="origem"
+            name="origem"
             placeholder="Como nos encontrou?"
           />
         </div>
@@ -85,13 +94,9 @@
 
       </form>
 
-      <div id="mensagemSucesso" class="mensagem-sucesso"> 
-       
-      </div> 
+      <div id="mensagemSucesso" class="mensagem-sucesso"></div>
 
     </section>
-
-    
 
   </main>
 
